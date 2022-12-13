@@ -17,21 +17,24 @@ VCF files which we will use to see which high impact SNPs are present in our dat
 
 ## Third step
 
-Run ```mpileup_creation.sh```
-
-This script creates a mpileup file from the bam files which were created in the second step
+Run ```mpileup_creation.sh```  
+  
+This script creates a mpileup file from the bam files which were created in the second step.   
+Note: Please enure your outgroup sample is the first bam file in the list of files. This is important when computing F4 statistics.  
+It also takes a file which has the genomic locations we want to investigate.   
+This file is called ```matching_snp_locations.txt```
 
 
 ## Fourth step
 
-Run ```sync_file_creation.sh```
-
+Run ```sync_file_creation.sh```  
+  
 This script uses the mpileup file from the third step to create a sync file using popoolation2  
 This sync file is the input file for PoolFstat  
 
 ## Fifth step
 
-Run ```sync_to_pooldata.R```
+Run ```sync_to_pooldata.R```  
 
 This script takes the sync file as input and outputs the following:  
 A pooldata object  
@@ -40,13 +43,21 @@ FST for every pairwise combination of populations
 F3 statistics for every combination of 3 populations  
 F4 statistics for every combination of 3 populations + Cerana as outgroup  
 
-## Sixth step 
+## Sixth step  
+Visualising the pairwise FST matrix which was created in the last step  
+Run ```paiwriseFST_visualise.R``  
+  
+## Seventh step
+Run ```combine_pairwise_FSTs.py```  
+This python script combines all of the pairwise FSTs we create for each sample into one final matrix
+(you may need to fill in the bottom right of the dataframe manually)
+
 Run ```FST visualisation.R```  
 This scrpipt will output various trees using the pairwise FST matrix from the fifth step  
 
-## Seventh step 
+## Eigth step 
 Run ```F3 visualisation.R```  
 This script will output F3 plots for every population using our test population and known pure samples of various sub-species  
 
-## Eigth step
+## Ninth step
 ```Run 
