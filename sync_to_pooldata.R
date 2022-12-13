@@ -109,17 +109,26 @@ NA1", "MLT_RUT1", "F74D19", "RPOT", "F48DL22", "M218DL21", "SWI_MEL1", "F162DL22
   pure_samples_plus_i_pools = pooldata.subset(pooldata, pool.index=known_pure_samples_and_hybrids)
   fstats = compute.fstats(pure_samples_plus_i_pools, nsnp.per.bjack.block = 500, computeDstat=TRUE, return.F4.blockjackknife.samples=TRUE)
   
+  # create a plot to visualise the F3 stat
+  f3_plot_out = paste("/data2/ssmith/f3_plots/",i,"f3_.png", sep="")
+  png(f3_plot_out, width = 300, height = 600, units = "px")
+  plot_fstats(fstats, stat.name = "F3", cex=0.5,
+            pop.f3.target = c(i))
+  dev.off()
+  
+  # output the F3star data
   print("creating f3 star csv")
   fstats.f3star = fstats@f3star.values
   fstats.f3star = as.data.frame(fstats.f3star)
-  f3_out_name = paste("/data2/ssmith/fstats/f3/i,".csv", sep="")
+  f3_out_name = paste("/data2/ssmith/fstats/f3/",i,".csv", sep="")
   write.csv(fstats.f3star, f3_out_name)
   
+  # output only the significant F3 data
   print("computing admixture and creating admix csv")
   tst.sel = fstats@f3.values$'Z-score'< -3
   admi = fstats@f3.values[tst.sel,]
   admi = as.data.frame(admi)
-  admix_out_name = paste("/data2/ssmith/fstats/admix/i,".csv", sep="")
+  admix_out_name = paste("/data2/ssmith/fstats/admix/,i,".csv", sep="")
   write.csv(admi, admix_out_name)
 }
 
