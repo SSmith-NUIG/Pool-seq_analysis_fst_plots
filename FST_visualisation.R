@@ -1,5 +1,5 @@
 # read in the pairwise fst
-full_snppairwise = read.csv("pairwise_FST.csv", row.names=1)
+full_snppairwise = read.csv("full_snppairwise.csv", row.names=1)
 
 # scale the matrix
 snp_full_scaled = scale(full_snppairwise)
