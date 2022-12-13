@@ -16,10 +16,10 @@ VCF files which we will use to see which high impact SNPs are present in our dat
 
 ## Third step
 
-Run ```mpileup_creation.sh``
+Run ```mpileup_creation.sh```
 
 This script creates a mpileup file from the bam files which were created in the second step
-W
+
 
 ## Fourth step
 
