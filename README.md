@@ -1,4 +1,4 @@
-# Pool-seq_analysis (FST plots)
+# Pool-seq_analysis 
 Scripts to analyse pool-seq data from raw data to f-statistics
 
 
@@ -43,11 +43,12 @@ FST for every pairwise combination of populations
 F3 statistics for every combination of 3 populations  
 F4 statistics for every combination of 3 populations + Cerana as outgroup  
 
-## Sixth step  
+## Sixth step  (FST ANALYSIS)
 Run ```combine_pairwise_FSTs.py```  
 This python script combines all of the pairwise FSTs we create for each sample into one final matrix
 (you may need to fill in the bottom right of the dataframe manually)
   
-## Seventh step
+## Seventh step (FST ANALYSIS)
 Run ```FST visualisation.R```  
 This scrpipt will output various trees using the pairwise FST matrix from the fifth step  
+
