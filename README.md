@@ -1,4 +1,4 @@
-# Pool-seq_analysis
+# Pool-seq_analysis (FST plots)
 Scripts to analyse pool-seq data from raw data to f-statistics
 
 
