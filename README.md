@@ -40,7 +40,7 @@ This script takes the sync file as input and outputs the following:
 A pooldata object  
 Input files for BayPass  
 FST for every pairwise combination of populations  
-F3 statistics for every combination of 3 populations  
+F3 statistics for every combination of 3 populations  (use this to determine if a colony is hybridised or not)
 F4 statistics for every combination of 3 populations + Cerana as outgroup  
 
 ## Sixth step  (FST ANALYSIS)
