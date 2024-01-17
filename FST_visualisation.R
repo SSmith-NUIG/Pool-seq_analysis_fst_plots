@@ -1,3 +1,8 @@
+library(ape)
+library(factoextra)
+library(phytools)
+library(mapdata)
+
 # read in the pairwise fst
 full_snppairwise = read.csv("full_snppairwise.csv", row.names=1)
 
@@ -30,6 +35,27 @@ my_colors = c("chartreuse4", "chocolate2", "red", "brown", "brown", "darkorchid3
 png("tree_pearsons_wardD2.png", width = 1500, height = 2000, units = "px")
 plot(snp_tree_pearson, type = "tidy", tip.color = my_colors[clus4_pearson],
      label.offset = .05, cex = 0.75, main="Phylogram based on pairwiseFST")
+dev.off()
+
+# map tree onto the geographical location of the samples using a map of ireland
+# read in a file that has 3 columns, (Sample name, latitude, longitude)
+ireland = read.csv("/home/stephen/Documents/Thesis/Population_model/Results/mapfiles/phytools_dec23_all.csv", sep=",", row.names = 1)
+
+# check that the sample names between the location file and the tree match
+ireland_samp = row.names(ireland)
+tree_samp = snp_tree_pearson$tip.label
+setdiff(ireland_samp,tree_samp)
+
+# create a phytools object
+obj<-phylo.to.map(snp_tree_pearson,ireland,database="worldHires",
+                  regions="ireland",plot=FALSE,rotate=T, from.tip = FALSE)
+
+# plot the phytools object 
+png("/home/stephen/Documents/Thesis/Population_model/Results/FST_plots/irish_only_dec2023_fst2map.png", width = 900, height = 600, units = "px")
+plot(obj,direction="rightwards",cex.points=c(2,1.2),
+     pts=F, from.tip=T, ftype="i", fsize=0.4, ylim=c(48,59), xlim=c(-12,-2))
+tiplabels(pch=19, cex=.4, 
+          col = mycols2)
 dev.off()
 
 
