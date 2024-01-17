@@ -44,14 +44,11 @@ F3 statistics for every combination of 3 populations
 F4 statistics for every combination of 3 populations + Cerana as outgroup  
 
 ## Sixth step  
-Visualising the pairwise FST matrix which was created in the last step  
-Run ```paiwriseFST_visualise.R```  
-  
-## Seventh step
 Run ```combine_pairwise_FSTs.py```  
 This python script combines all of the pairwise FSTs we create for each sample into one final matrix
 (you may need to fill in the bottom right of the dataframe manually)
-
+  
+## Seventh step
 Run ```FST visualisation.R```  
 This scrpipt will output various trees using the pairwise FST matrix from the fifth step  
 
