@@ -51,10 +51,3 @@ This python script combines all of the pairwise FSTs we create for each sample i
 ## Seventh step
 Run ```FST visualisation.R```  
 This scrpipt will output various trees using the pairwise FST matrix from the fifth step  
-
-## Eighth step 
-Run ```F3 visualisation.R```  
-This script will output F3 plots for every population using our test population and known pure samples of various sub-species  
-
-## Ninth step
-```Run 
