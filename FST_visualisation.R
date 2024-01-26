@@ -1,3 +1,4 @@
+```
 library(ape)
 library(factoextra)
 library(phytools)
@@ -66,3 +67,4 @@ samples_names = rownames(full_snppairwise)
 
 # plot the pca
 a = ggplot(dtp, aes(x=PC1, y=PC2, label=row.names(dtp))) + geom_text(cex=4.2) + theme_minimal()
+```
